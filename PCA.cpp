@@ -71,14 +71,25 @@ int main (int argc, char *argv[]) {
    cout << "X mean: " << xMean << endl;
    cout << "Y mean: " << yMean << endl;
    
+   float xVariance;
+   float xSquared;
+   float yVariance;
+   float ySquared;
    //Now we centre the data around mean
+   //Also calculate variance
    for (int i = 0; i < xVals.size(); ++i){
       xVals[i] -= xMean;
+      xVariance += xVals[i]*xVals[i];
    }
+   xVariance /= 63;
+   
+   cout << "X Variance (January): " << xVariance << endl;
    for (int i = 0; i < yVals.size(); ++i){
       yVals[i] -= yMean;
+      yVariance +=yVals[i]*yVals[i];
    }
-   
+   yVariance /= 63;
+   cout << "Y Variance (July): " << yVariance << endl;
    //Compute covariance
    cout << "\nCompute the covariance\n" << endl;
    
