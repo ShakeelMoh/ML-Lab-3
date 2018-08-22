@@ -1,0 +1,18 @@
+1) Eigenvalues (1): 154.3106
+	       (2): 9.1630
+
+2) Eigenvectors (1): 0.9391 (Jan)
+		     0.3435 (July)
+
+   Eigenvectors (2): -0.3435 (Jan)
+		     0.9391 (July)
+
+3) Total Variance = Sum of eigenvalues
+		  = 163.4736
+
+4) Proportion explained: 1) 154.3106/163.4736 * 100
+			    = 94.39%
+			
+			 2) 9.1630/163.4736 * 100
+			    = 5.61%
+

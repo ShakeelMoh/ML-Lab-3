@@ -57,8 +57,8 @@ int main (int argc, char *argv[]) {
       i++;
    }
    
-   int xMean = 0;
-   int yMean = 0;
+   double xMean = 0;
+   double yMean = 0;
    for (int i = 0; i < xVals.size(); ++i){
       xMean += xVals[i];
    }
@@ -71,10 +71,10 @@ int main (int argc, char *argv[]) {
    cout << "X mean: " << xMean << endl;
    cout << "Y mean: " << yMean << endl;
    
-   float xVariance;
-   float xSquared;
-   float yVariance;
-   float ySquared;
+   double xVariance;
+   double xSquared;
+   double yVariance;
+   double ySquared;
    //Now we centre the data around mean
    //Also calculate variance
    for (int i = 0; i < xVals.size(); ++i){
@@ -96,21 +96,22 @@ int main (int argc, char *argv[]) {
    vector<float> covarianceSum = vector<float>(4);
    
    for (int i = 0; i < xVals.size(); ++i){
-      float val1 = xVals[i]*xVals[i];
+      double val1 = xVals[i]*xVals[i];
       covarianceSum[0] += val1;
-      float val2 = xVals[i]*yVals[i];
+      double val2 = xVals[i]*yVals[i];
       covarianceSum[1] += val2;
       covarianceSum[2] += val2;
-      float val4 = yVals[i]*yVals[i];
+      double val4 = yVals[i]*yVals[i];
       covarianceSum[3] += val4;   
    }
    
    //Divide covariance by 64
-   covarianceSum[0] /= xVals.size();
-   covarianceSum[1] /= xVals.size();
-   covarianceSum[2] /= xVals.size();
-   covarianceSum[3] /= xVals.size();
+   covarianceSum[0] /= (xVals.size()-1);
+   covarianceSum[1] /= (xVals.size()-1);
+   covarianceSum[2] /= (xVals.size()-1);
+   covarianceSum[3] /= (xVals.size()-1);
    
+   cout << "\nJan July Variance: " << covarianceSum[1] << endl;
    
    cout << "\nCovariance matrix divided by the number of data points (64)" << endl;
    cout << "\n" << covarianceSum[0] << "  " << covarianceSum[1] << endl;
